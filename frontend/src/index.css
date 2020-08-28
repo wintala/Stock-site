@@ -1,13 +1,134 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+
+
+#root {
+  font-family: "Verdana", Geneva, sans-serif;
+  text-shadow: 1px 1px black;
+  display: flex;
+  justify-content: center;
+  vertical-align: middle;
+  flex-direction: column;
+  height: 100%;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+#search {
+  width: 95%;
+  margin: auto;
+  max-width: 800px;
 }
+
+h2 {
+  font-size: 2em;
+  color: white;
+  text-shadow: 0px 1px rgb(0, 153, 115);
+}
+
+
+
+table {
+  color: white;
+  background-color: rgb(38, 77, 115);
+  border-collapse: collapse;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-top: 3px;
+  width: 100%;
+}
+
+tr {
+  height: 40px;
+  cursor: pointer;
+}
+
+tr:nth-child(odd) {
+  background-color:rgb(0, 153, 115);
+}
+
+td{
+  padding: 10px;
+  border-bottom: 1px solid rgb(255, 255, 255);
+  text-align: center;
+}
+
+tr:last-child td {
+  border-bottom: none;
+}
+
+form {
+  text-align: center;
+  background-color: rgb(38, 77, 115);
+  color: white;
+  margin: auto;
+  padding: 20px 60px;
+  border-radius: 4px;
+}
+
+form input {
+  border-radius: 2px;
+  border: 4px solid white;
+  width: 80%;
+  text-align: center;
+}
+
+.graph {
+  margin: auto;
+  max-width: 800px;
+}
+
+button {
+  background-color: white;
+  margin: 10px;
+  padding: 10px;
+	color: rgb(0, 153, 115);
+	border-radius: 4px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  border: 2px solid rgb(0, 153, 115);
+}
+
+.options {
+  color: white;
+  width: 95%;
+  margin: auto;
+  max-width: 800px;
+  display: flex;
+}
+
+.options table {
+  margin-right: 2px;
+  width: 50%;
+  margin-top: 0px;
+}
+
+.options div {
+  margin-left: 2px;
+  width: 50%;
+  background-color: rgb(95, 95, 95);
+  border-radius: 4px;
+  text-align: center;
+  padding: 15px;
+}
+
+.options div input{
+  margin-right: 10px;
+}
+
+
+.options table button{
+  margin: 0px;
+  padding: 5px;
+  color: white;
+  background-color: rgb(255, 134, 134);
+  border: 2px solid white;
+}
+
+.options table input{
+  width: 30px;
+}
+
+th {
+  background-color: rgb(0, 0, 0);
+}
+

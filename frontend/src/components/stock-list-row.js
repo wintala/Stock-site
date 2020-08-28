@@ -22,7 +22,6 @@ const Row = ({data}) => {
 				{data.ticker}
 			</td>
 			<td>
-				Amount
 				<input
 					type="text"
 					value={multiplier ? multiplier : 0}

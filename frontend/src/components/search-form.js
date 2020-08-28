@@ -17,28 +17,38 @@ const SearchForm = () => {
 		})
 	}
 
-
 	const resultTable = () => {
 		if (result.ResultSet.Result.length === 0) {
 			return <div>No matches</div>
 		}
 		return(
-			<table>
-				<tbody>
-					{result.ResultSet.Result.map(o => 
-						<tr key={o.symbol} onClick={() => addData(o.symbol)}>
-							<td>
-								{o.name}
-							</td>
-							<td>
-								{o.symbol}
-							</td>
-							<td>
-								{o.exchDisp}
-							</td>
-						</tr>)}
-				</tbody>
-			</table>
+				<table>
+					<tbody>
+						<tr>
+							<th>
+								Company
+							</th>
+							<th>
+								Symbol
+							</th>
+							<th>
+								exchDisp
+							</th>
+						</tr>
+						{result.ResultSet.Result.map(o => 
+							<tr key={o.symbol} onClick={() => addData(o.symbol)}>
+								<td>
+									{o.name}
+								</td>
+								<td>
+									{o.symbol}
+								</td>
+								<td>
+									{o.exchDisp}
+								</td>
+							</tr>)}
+					</tbody>
+				</table>
 		)
 	}
 
@@ -51,7 +61,7 @@ const SearchForm = () => {
 	}
 
 	return(
-			<div>
+			<div id="search">
 				<form onSubmit={handleSearch}>
 					<h2>Search company</h2>
 					<div>
