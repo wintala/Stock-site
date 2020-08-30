@@ -49,6 +49,14 @@ td{
   text-align: center;
 }
 
+#result-table tr:hover{
+  background-color:rgb(27, 52, 78);
+}
+
+#result-table tr:nth-child(odd):hover{
+  background-color:rgb(0, 92, 69);
+}
+
 tr:last-child td {
   border-bottom: none;
 }
@@ -88,6 +96,13 @@ button {
   border: 2px solid rgb(0, 153, 115);
 }
 
+button:hover {
+  background-color: rgb(0, 153, 115);
+	color: white;
+  border: 2px solid white;
+}
+
+
 .options {
   color: white;
   width: 95%;
@@ -124,11 +139,30 @@ button {
   border: 2px solid white;
 }
 
+.options table button:hover{
+  color: rgb(255, 134, 134);
+  background-color: white;
+  border: 2px solid rgb(255, 134, 134);
+}
+
 .options table input{
   width: 30px;
 }
 
 th {
   background-color: rgb(0, 0, 0);
+}
+
+#no-match {
+  color: white;
+  background-color: rgb(0, 153, 115);
+  border-collapse: collapse;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-top: 3px;
+  width: 100%;
+  text-align: center;
+  font-size: 1.2em;
+  padding: 10px 0px;
 }
 

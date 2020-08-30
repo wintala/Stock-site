@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react"
+import React, {useState, useEffect, useRef} from "react"
 import {Line} from "react-chartjs-2"
 import {useSelector} from "react-redux"
 import Row from "./stock-list-row"
@@ -17,6 +17,16 @@ const Graph = () => {
 		{name: "High", on: false},
 		{name: "Low", on: false}
 	])
+	const previousDatasetsLength = useRef(null)
+
+	useEffect(() => {
+		// ensimmäisen datasetin lisäyksen yhteydessä dateRange kolmenkymmenen viimeisen rekordin mittaiseksi
+		console.log(previousDatasetsLength.current)
+		if (dataSets.length === 1 && previousDatasetsLength.current === 0) {
+			setDaterange({start: dataSets[0].values.slice(-30)[0].Date, end: dataSets[0].values.slice(-1)[0].Date})
+		}
+		previousDatasetsLength.current = dataSets.length
+	}, [dataSets])
 
 
 	useEffect(() => {
@@ -31,7 +41,7 @@ const Graph = () => {
 			{
 				label: data.map(d => d.ticker).join(" + ") + " Close",
 				// nice oneliner :D
-				data: [...Array(data[0].values.length).keys()].map(i => data.map(d => d.values.slice(dates.start, dates.end).map(x => x.Close * d.multiplier)[i]).reduce((a, b) => (a + b))),
+				data: [...Array(data[0].values.length).keys()].map(i => data.map(d => d.values.slice(dates.start, dates.end + 1).map(x => x.Close * d.multiplier)[i]).reduce((a, b) => (a + b))),
 				borderColor: "rgb(255, 80, 80)",
 				hoverBorderWidth: 0,
 				hoverBackgroundColor: "rgb(0, 153, 255)",
@@ -49,7 +59,7 @@ const Graph = () => {
 						data.map(d => (
 							{
 								label: `${d.ticker} ${o.name}`, 
-								data: d.values.slice(dates.start, dates.end).map(x => x[o.name] * d.multiplier),
+								data: d.values.slice(dates.start, dates.end + 1).map(x => x[o.name] * d.multiplier),
 								borderColor: colors.pop(),
 								hoverBorderWidth: 0,
 								hoverBackgroundColor: "rgb(255, 80, 80)",
@@ -70,9 +80,12 @@ const Graph = () => {
 		const commonDates = sharedDates()
 		const newCroppedSets = dataSets.map(s => ({...s, values: s.values.filter(v => commonDates.includes(v.Date))}))
 
-		// jos lisättävä yritys listautunut vatsa valitus aloitus päivän jälkeen asetetaan aloitus ensimmäiseen rekordiin
+		// jos valitun rangen päät eivät sisälly uuden instrumentin rekordeihin, asetetaan range yhteisten rekordien alkuun/loppuun
 		if (!commonDates.includes(dateRange.start)) {
 			setDaterange({...dateRange, start: commonDates[0]})
+		}
+		if (!commonDates.includes(dateRange.end)) {
+			setDaterange({...dateRange, end: commonDates.slice(-1)[0]})
 		}
 
 		const newDateIndecies = {
@@ -82,7 +95,7 @@ const Graph = () => {
 		setCropedSets(newCroppedSets)
 		setChartData(
 			{
-				labels: commonDates.slice(newDateIndecies.start, newDateIndecies.end),
+				labels: commonDates.slice(newDateIndecies.start, newDateIndecies.end + 1),
 				datasets: combined ? [combinedCloseDataset(newCroppedSets, newDateIndecies)]: distinctDatasets(newCroppedSets, newDateIndecies)
 			}
 		)
@@ -142,7 +155,7 @@ const Graph = () => {
 									display: false
 								},
 									ticks: {
-											display: false //this will remove only the label
+											display: false
 									}
 							}]
 						}

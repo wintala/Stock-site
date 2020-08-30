@@ -19,10 +19,10 @@ const SearchForm = () => {
 
 	const resultTable = () => {
 		if (result.ResultSet.Result.length === 0) {
-			return <div>No matches</div>
+			return <div id="no-match">No matches</div>
 		}
 		return(
-				<table>
+				<table id="result-table">
 					<tbody>
 						<tr>
 							<th>

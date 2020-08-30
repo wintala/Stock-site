@@ -5,7 +5,7 @@ const findTickers = async (companyName) => {
     params: {company: companyName},
   }
 
-  return axios.get("/ticker", config).then(response => response.data)
+  return axios.get("/api/ticker", config).then(response => response.data)
 }
 
 const getData = async (ticker) => {
@@ -13,7 +13,7 @@ const getData = async (ticker) => {
     params: {ticker},
   }
 
-  return axios.get("/data", config).then(response => response.data)
+  return axios.get("/api/data", config).then(response => response.data)
 }
 
 
