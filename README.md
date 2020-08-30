@@ -1,6 +1,7 @@
 # Stock grapher web app
 
 Web app that makes possible to graph and compare visually multiple stocks with different weights and allocations.
+Created for learning purposes.
 
 ---
 Backend: Flask. Data is fetched using [pandas datareader](https://pandas-datareader.readthedocs.io/en/latest/) from yahoo API
