@@ -21,7 +21,6 @@ const Graph = () => {
 
 	useEffect(() => {
 		// ensimmäisen datasetin lisäyksen yhteydessä dateRange kolmenkymmenen viimeisen rekordin mittaiseksi
-		console.log(previousDatasetsLength.current)
 		if (dataSets.length === 1 && previousDatasetsLength.current === 0) {
 			setDaterange({start: dataSets[0].values.slice(-30)[0].Date, end: dataSets[0].values.slice(-1)[0].Date})
 		}

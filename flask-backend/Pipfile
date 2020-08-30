@@ -11,6 +11,7 @@ rope = "*"
 requests = "*"
 pandas-datareader = "*"
 flask = "*"
+gunicorn = "*"
 
 [requires]
 python_version = "3.8"
