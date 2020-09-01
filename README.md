@@ -10,4 +10,4 @@ Backend: Flask. Data is fetched using [pandas datareader](https://pandas-datarea
 Frontend: React + Redux. [Chart.js](https://www.chartjs.org/) used for graphs
 
 ---
-[Quick test deploy](https://hopeful-kepler-bae39d.netlify.app)
+[Quick test deploy](https://compassionate-mclean-6c87ad.netlify.app/)
