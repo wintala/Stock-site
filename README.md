@@ -1,7 +1,6 @@
 # Stock grapher web app
 
-I was trying to find minimalistic page that makes possible to easily graph and compare visually multiple stocks with different weights and allocations.
-I didn't find any so I made my own.  
+Minimalistic page that makes possible to easily graph and compare visually multiple stocks with different weights and allocations.
 Created for learning purposes.
 
 ---
