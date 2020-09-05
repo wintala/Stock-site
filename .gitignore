@@ -1,3 +1,4 @@
 */node-modules
 *.vscode
 */__pycache__
+*.png

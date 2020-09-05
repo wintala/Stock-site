@@ -17,5 +17,9 @@ const getData = async (ticker) => {
   return axios.get(`${baseUrl}/api/data`, config).then(response => response.data)
 }
 
+const wakeUpRequest = async () => {
+  axios.get(`${baseUrl}/api/whatevcer`)
+}
 
-export default {findTickers, getData}
+
+export default {findTickers, getData, wakeUpRequest}

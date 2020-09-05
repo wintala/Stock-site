@@ -166,3 +166,40 @@ th {
   padding: 10px 0px;
 }
 
+#info-table {
+  text-align: center;
+  width: 95%;
+  margin: auto;
+  max-width: 800px;
+}
+
+#info-table h2{
+  font-size: 1.5em;
+  color: black;
+  padding: 0px;
+  margin: 5px;
+}
+
+#intro {
+  text-align: center;
+  vertical-align: center;
+  width: 95%;
+  margin: auto;
+  max-width: 800px;
+  border: 2px solid rgb(0, 0, 0);
+  background-color: rgb(0, 153, 115);
+  border-radius: 4px;
+  padding: 20px 0px;
+  margin-top: 20px;
+  font-size: 1.3em;
+  color: white;
+}
+
+#photo {
+  margin: auto;
+  width: 60%;
+  height: auto;
+  margin-top: 10px;
+}
+
+

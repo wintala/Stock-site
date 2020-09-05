@@ -2,6 +2,7 @@ import React, {useState, useEffect, useRef} from "react"
 import {Line} from "react-chartjs-2"
 import {useSelector} from "react-redux"
 import Row from "./stock-list-row"
+import InfoTable from "./info-table"
 
 const Graph = () => {
 	const dataSets = useSelector(state => state)
@@ -40,7 +41,7 @@ const Graph = () => {
 			{
 				label: data.map(d => d.ticker).join(" + ") + " Close",
 				// nice oneliner :D
-				data: [...Array(data[0].values.length).keys()].map(i => data.map(d => d.values.slice(dates.start, dates.end + 1).map(x => x.Close * d.multiplier)[i]).reduce((a, b) => (a + b))),
+				data: [...Array(data[0].values.length).keys()].map(i => data.map(d => d.values.slice(dates.start, dates.end + 1).map(x => x.Close * d.multiplier)[i]).reduce((a, b) => (a + b))).filter(x => !isNaN(x)),
 				borderColor: "rgb(255, 80, 80)",
 				hoverBorderWidth: 0,
 				hoverBackgroundColor: "rgb(0, 153, 255)",
@@ -191,8 +192,12 @@ const Graph = () => {
 					</select>
 					</div>
 			</div>
+			<InfoTable chartData={chartData} />
 		</div>:
-		null
+		<div id="intro">
+			Graph and compare multiple stocks in an easy and intuitive way.
+			<img id="photo" alt="data" src={require('../dataphoto.png')} />
+		</div>
 	)
 }
 
