@@ -5,15 +5,18 @@ import {useDispatch, useSelector} from "react-redux"
 
 const SearchForm = () => {
 	const [result, setResult] = useState(null)
+	const [loading, setLoading] = useState(false)
 	const dispatch = useDispatch()
 	const data = useSelector(state => state)
 
 
 	const handleSearch = (e) => {
 		e.preventDefault()
+		setLoading(true)
 		const search = e.target.search.value
 		services.findTickers(search).then(r => {
 			setResult(r)
+			setLoading(false)
 		})
 	}
 
@@ -71,6 +74,14 @@ const SearchForm = () => {
 					</div>
 					<button>Search</button>
 				</form>
+				{loading ? 		
+				<div className="dot-loading">
+					<div></div>
+					<div></div>
+					<div></div>
+					<div></div> 
+				</div> : 
+				null}
 				{result ? 
 				resultTable() :
 				null}

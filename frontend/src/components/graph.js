@@ -163,7 +163,6 @@ const Graph = () => {
 				/>
 			</div>
 			<div className="options">
-				{stockList()}
 				<div>
 					close
 					<input type="checkbox" checked={options[0].on} onChange={() => handleOptionChanhe("Close")}/>
@@ -191,11 +190,12 @@ const Graph = () => {
 						{cropedSets[0].values.map(v => <option key={v.Date}>{v.Date}</option>)}
 					</select>
 					</div>
+					{stockList()}
 			</div>
 			<InfoTable chartData={chartData} />
 		</div>:
 		<div id="intro">
-			Graph and compare multiple stocks in an easy and intuitive way.
+			<p>Graph and compare multiple stocks in an easy and intuitive way.</p>
 			<img id="photo" alt="data" src={require('../dataphoto.png')} />
 		</div>
 	)

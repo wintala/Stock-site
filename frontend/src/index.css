@@ -109,21 +109,28 @@ button:hover {
   margin: auto;
   max-width: 800px;
   display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 
 .options table {
-  margin-right: 2px;
-  width: 50%;
+  box-sizing: border-box;
   margin-top: 0px;
+  width: calc(50% - 2px);
+  margin: 1px;
+
 }
 
 .options div {
-  margin-left: 2px;
-  width: 50%;
+  box-sizing: border-box;
   background-color: rgb(95, 95, 95);
   border-radius: 4px;
   text-align: center;
   padding: 15px;
+  width: calc(50% - 2px);
+  margin: 1px;
 }
 
 .options div input{
@@ -201,5 +208,60 @@ th {
   height: auto;
   margin-top: 10px;
 }
+
+.dot-loading {
+  margin: 20px 0;
+  display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	border-radius: var(--main-border-radius);
+	flex-direction: row;
+	animation: dot-animation;
+}
+
+.dot-loading div {
+	border-radius: 50%;
+	background-color: rgb(190, 190, 190);
+	padding: 5px;
+	margin: 5px;
+	animation: dot-animation;
+	animation-duration: 2s;
+	animation-iteration-count: infinite;
+}
+
+.dot-loading div:nth-child(1) {
+	animation-delay: 0s;
+}
+
+.dot-loading div:nth-child(2) {
+	animation-delay: 0.5s;
+}
+
+.dot-loading div:nth-child(3) {
+	animation-delay: 1s;
+}
+
+.dot-loading div:nth-child(4) {
+	animation-delay: 1.5s;
+}
+
+@keyframes dot-animation {
+	0% {background-color: black}
+	25% {background-color: black;}
+	50% {background-color:  rgb(190, 190, 190);}
+	75% {background-color:  rgb(190, 190, 190);}
+	100% {background-color:  rgb(190, 190, 190);}
+}
+
+@media only screen and (max-width: 600px) {
+  .options div, .options table, #search, .options, #info-table{
+    width: 100%;
+  }
+  #photo {
+    width: 95%;
+  }
+}
+
 
 
